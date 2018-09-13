@@ -47,3 +47,7 @@ Create self contained executable:
 npm run package
 ```
 
+#   TODOs:
+    -   Add crontab
+
+
