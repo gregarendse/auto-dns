@@ -1,0 +1,40 @@
+{
+  "name": "auto-dns",
+  "version": "0.0.1",
+  "description": "Automatically update DNS entries",
+  "main": "lib/main",
+  "types": "lib/main",
+  "scripts": {
+    "build": "npm run build:dev",
+    "build:dev": "webpack --config webpack/dev.config.js --env.devlopment",
+    "build:prod": "webpack --config webpack/prod.config.js --env.production",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "package": "mkdir -p bin && nexe --input dist/main.js --output bin/auto-dns --verbose",
+    "build:package": "npm run build:prod && npm run package",
+    "clean": "rimraf bin lib dist"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "bunyan": "^1.8.12",
+    "commander": "^2.18.0",
+    "freenom-dns": "^0.9.3",
+    "ipify": "^2.0.0",
+    "rxjs": "^6.3.2",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/commander": "^2.12.2",
+    "@types/node": "^10.9.4",
+    "nexe": "^2.0.0-rc.34",
+    "nodemon": "^1.18.4",
+    "rimraf": "^2.6.2",
+    "ts-loader": "^5.1.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.18.0",
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
+  }
+}
