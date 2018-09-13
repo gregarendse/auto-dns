@@ -27,4 +27,4 @@ package:linux:
   artifacts:
     name: "linux"
     paths:
-      - dist/auto-dns
+      - bin/auto-dns
