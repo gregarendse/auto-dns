@@ -1,0 +1,16 @@
+{
+    "username": "username",
+    "password": "password",
+    "domains": [{
+        "name": "domain.tk",
+        "records": [{
+                "name": "record_A",
+                "type": "A"
+            },
+            {
+                "name": "record_AAAA",
+                "type": "AAAA"
+            }
+        ]
+    }]
+}
