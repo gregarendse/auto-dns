@@ -1,7 +1,8 @@
-image: node:10.10.0
+image: node:latest
 
 stages:
   - build
+  - package
 
 cache:
   paths:
@@ -12,12 +13,18 @@ build:linux:
   stage: build
   script:
     - npm install
-    - npm run build:package
+    - npm run build:prod
+  artifacts:
+    name: "$CI_JOB_NAME"
+    paths:
+      - dist/*
+
+package:linux:
+  stage: package
+  script:
+    - mkdir -p bin
+    - npx nexe --input dist/main.js --output bin/auto-dns --target linux-x64-10.9.0 --verbose
   artifacts:
     name: "linux"
     paths:
-      - bin/*
-
-
-
-
+      - dist/auto-dns
