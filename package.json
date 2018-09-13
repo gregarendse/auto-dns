@@ -2,14 +2,14 @@
   "name": "auto-dns",
   "version": "0.0.1",
   "description": "Automatically update DNS entries",
-  "main": "lib/main",
+  "main": "dist/main",
   "types": "lib/main",
   "scripts": {
     "build": "npm run build:dev",
     "build:dev": "webpack --config webpack/dev.config.js --env.devlopment",
     "build:prod": "webpack --config webpack/prod.config.js --env.production",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "package": "mkdir -p bin && nexe --input dist/main.js --output bin/auto-dns --verbose",
+    "package": "mkdir -p bin && nexe --input dist/main.js --output bin/auto-dns --target linux-x64-10.9.0 --verbose",
     "build:package": "npm run build:prod && npm run package",
     "clean": "rimraf bin lib dist"
   },

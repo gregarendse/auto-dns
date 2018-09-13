@@ -1,4 +1,4 @@
-image: node:8
+image: node:10.10.0
 
 stages:
   - build
@@ -6,6 +6,7 @@ stages:
 cache:
   paths:
     - node_modules/
+    - ~/.nexe/
 
 build:linux:
   stage: build
