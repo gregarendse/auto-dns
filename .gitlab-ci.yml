@@ -7,7 +7,7 @@ stages:
 cache:
   paths:
     - node_modules/
-    - ~/.nexe/
+    - /root/.nexe/
 
 build:linux:
   stage: build
@@ -27,4 +27,4 @@ package:linux:
   artifacts:
     name: "linux"
     paths:
-      - bin/auto-dns
+      - dist/auto-dns
