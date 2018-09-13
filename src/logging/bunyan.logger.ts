@@ -11,19 +11,22 @@ export class BunyanImpl implements Logger {
             throw new Error('Unable to instantiate Logger, use getInstance()');
         }
 
+        const streams: {}[] = [{
+            level: 'info',
+            path: '/var/log/auto-dns/auto-dns.info.log'
+        }];
+
+        if (process.env.NODE_ENV === 'development') {
+            streams.push({
+                level: 'info',
+                stream: process.stdout
+            });
+        }
+
         this.logger = bunyan.createLogger({
             name: 'auto-dns',
             src: false,
-            streams: [
-                {
-                    level: 'info',
-                    stream: process.stdout,
-                },
-                {
-                    level: 'info',
-                    path: '/var/log/auto-dns/auto-dns.info.log'
-                }
-            ]
+            streams: streams
         });
     }
 
