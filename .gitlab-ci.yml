@@ -14,9 +14,9 @@ build:linux:
     - npm install
     - npm run build:package
   artifacts:
-    name: "$CI_JOB_NAME"
+    name: "linux"
     paths:
-      - bin/
+      - bin/*
 
 
 
