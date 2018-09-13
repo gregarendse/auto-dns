@@ -1,0 +1,18 @@
+image: node:8
+
+stages:
+  - build
+
+cache:
+  paths:
+    - node_modules/
+
+build:linux:
+  state: build
+  script:
+    - npm install
+    - npm run build:pacakge
+
+
+
+
