@@ -9,7 +9,7 @@ cache:
     - node_modules/
     - /root/.nexe/
 
-build:linux:
+build:
   stage: build
   script:
     - npm install
@@ -27,4 +27,4 @@ package:linux:
   artifacts:
     name: "linux"
     paths:
-      - dist/auto-dns
+      - bin/auto-dns
