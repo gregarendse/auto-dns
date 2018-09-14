@@ -42,12 +42,18 @@ npm run build
 ```
 
 Create self contained executable:
+see https://github.com/pmq20/node-packer
 
 ```
-npm run package
+curl -L http://enclose.io/nodec/nodec-linux-x64.gz | gunzip > nodec && chmod +x ./nodec
+
+./nodec dist/main.js --output=bin/auto-dns --tmpdir=/tmp/.nodec --keep-tmpdir
 ```
 
-#   TODOs:
-    -   Add crontab
+# CRONTAB
 
+Add the following crontab to have Auto DNS poll your external IP address every 5 minutes and if need be update your DNS entries.
 
+```
+*/5 * * * * /opt/auto-dns/auto-dns freenom --config /etc/auto-dns/config.json --update --list
+```

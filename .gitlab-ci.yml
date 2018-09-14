@@ -1,4 +1,4 @@
-image: node:latest
+image: node:8.3.0
 
 stages:
   - build
@@ -7,7 +7,7 @@ stages:
 cache:
   paths:
     - node_modules/
-    - /root/.nexe/
+    - /tmp/.nodec/
 
 build:
   stage: build
@@ -23,7 +23,8 @@ package:linux:
   stage: package
   script:
     - mkdir -p bin
-    - npx nexe --input dist/main.js --output bin/auto-dns --target linux-x64-10.9.0 --verbose
+    - curl -L http://enclose.io/nodec/nodec-linux-x64.gz | gunzip > nodec && chmod +x ./nodec
+    - ./nodec dist/main.js --output=bin/auto-dns --tmpdir=/tmp/.nodec --keep-tmpdir
   artifacts:
     name: "linux"
     paths:

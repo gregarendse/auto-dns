@@ -12,7 +12,7 @@ const actions: Action[] = [];
 command
     .version('0.0.0')
     .usage('<command> [options]')
-    .option('-c, --config <config>', 'Config file location', '/etc/freenom/config.json')
+    .option('-c, --config <config>', 'Config file location', '/etc/auto-dns/config.json')
     .option('-l, --list', 'List DNS entries', () => {
         actions.push(new List());
     })
@@ -20,7 +20,7 @@ command
         actions.push(new Update());
     })
     .option('-i, --ip-service <ip-service>', 'Specifiy the IP service used to get external IP [ipify]', 'ipify')
-    .option('-s, --state <state>', 'Location of state file', '/tmp/freenom/state.json')
+    .option('-s, --state <state>', 'Location of state file', '/tmp/auto-dns/state.json')
 
 command
     .command('freenom')
